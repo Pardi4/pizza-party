@@ -31,8 +31,7 @@ const puppeteer = require('puppeteer');
         try {
             await page.waitForSelector(selector);
             await new Promise(resolve => setTimeout(resolve, 1000));
-            const html = await page.content();
-console.log(html);  // Cały HTML strony
+            await page.screenshot({ path: 'screenshot.png' });  // Zrzut ekranu po załadowaniu strony
             await page.click(selector);
         } catch (error) {
             return "Błąd podczas klikania w element: " + selector + "\n" + error.message;
