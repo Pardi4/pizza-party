@@ -20,7 +20,8 @@ const puppeteer = require('puppeteer');
         '--disable-gpu',
         '--disable-extensions',
         '--disable-software-rasterizer',
-        '--no-zygote'
+        '--no-zygote',
+        '--remote-debugging-port=9222']
     ]
     });
     const page = await browser.newPage();
