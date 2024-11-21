@@ -26,16 +26,18 @@ jobs:
       run: |
         npm install
 
-    - name: Install dependencies for Puppeteer and Chromium
+    - name: Install Google Chrome and dependencies for Puppeteer
       run: |
+        # Instalacja zależności systemowych
         sudo apt-get update
         sudo apt-get install -y wget curl libgtk-3-0 libdbus-1-3 libgdk-pixbuf2.0-0 libnss3 libx11-xcb1 libxcomposite1 libxdamage1 libxrandr2 libasound2 libatk-bridge2.0-0 libatk1.0-0 libnspr4 libxtst6 xdg-utils
-        # Instalacja Chromium (przeglądarka potrzebna do Puppeteer)
-        sudo apt-get install -y chromium-browser
+        # Pobranie i zainstalowanie Google Chrome
+        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo apt install -y ./google-chrome-stable_current_amd64.deb
 
     - name: Run Node.js app with Puppeteer
       run: |
-        # Uruchomienie pliku app.js
-        node json.js  # Zmień 'app.js' na nazwę swojego pliku Node.js
+        # Uruchomienie pliku json.js
+        node json.js  # Zmień 'json.js' na nazwę swojego pliku Node.js
       env:
-        PUPPETEER_EXECUTABLE_PATH: /usr/bin/chromium-browser # Ścieżka do Chromium w systemie Linux
+        PUPPETEER_EXECUTABLE_PATH: /usr/bin/google-chrome-stable # Ścieżka do Google Chrome w systemie Linux
