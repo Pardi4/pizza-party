@@ -32,7 +32,6 @@ const puppeteer = require('puppeteer');
             await page.waitForSelector(selector);
             await new Promise(resolve => setTimeout(resolve, 1000));
             const html = await page.content();
-const html = await page.content();
 console.log(html);  // Cały HTML strony
             await page.click(selector);
         } catch (error) {
