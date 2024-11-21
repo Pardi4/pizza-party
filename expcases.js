@@ -11,9 +11,17 @@ const puppeteer = require('puppeteer');
         await new Promise(resolve => setTimeout(resolve, 1000));
     }
     const browser = await puppeteer.launch({
-        headless: true,
-        executablePath: '/usr/bin/chromium-browser', // ścieżka do zainstalowanego Chromium
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
+    headless: true,
+    executablePath: '/usr/bin/chromium-browser',
+    args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-gpu',
+        '--disable-extensions',
+        '--disable-software-rasterizer',
+        '--no-zygote'
+    ]
     });
     const page = await browser.newPage();
     await page.goto('https://g4skins.com', { waitUntil: 'load' });
