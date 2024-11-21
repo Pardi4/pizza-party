@@ -10,7 +10,7 @@ const puppeteer = require('puppeteer');
     while (!XST) {
         await new Promise(resolve => setTimeout(resolve, 1000));
     }
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
     await page.goto('https://g4skins.com', { waitUntil: 'load' });
 
