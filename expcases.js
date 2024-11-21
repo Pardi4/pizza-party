@@ -67,7 +67,7 @@ const puppeteer = require('puppeteer');
     for (i = 0; i < expcases.length; i++) {
         const element = await page.$(expcases[i]);
         const text = await page.evaluate(el => el.textContent, element);
-        if (text != "NIE POSIADASZ") {
+        if  (text != "NIE POSIADASZ" && text != "YOU DO NOT OWN")  {
             var bestcase = expcases[i];
             break;
         }
