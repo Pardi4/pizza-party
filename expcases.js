@@ -21,7 +21,7 @@ const puppeteer = require('puppeteer');
         '--disable-extensions',
         '--disable-software-rasterizer',
         '--no-zygote',
-        '--remote-debugging-port=9222']
+        '--remote-debugging-port=9222'
     ]
     });
     const page = await browser.newPage();
